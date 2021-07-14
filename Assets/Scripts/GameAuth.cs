@@ -117,8 +117,8 @@ public class GameAuth : MonoBehaviour
                 Password = password
             }).ConfigureAwait(false);
 
-            CognitoAWSCredentials credentials =
-                user.GetCognitoAWSCredentials(GamePlayManager.Singleton.IDENTITYPOOL_ID, RegionEndpoint.APNortheast2);       //identityPoolID
+            //CognitoAWSCredentials credentials =
+            //    user.GetCognitoAWSCredentials(GamePlayManager.Singleton.IDENTITYPOOL_ID, RegionEndpoint.APNortheast2);       //identityPoolID
             string jwt = authResponse.AuthenticationResult.AccessToken;
             return jwt;
         }

@@ -13,7 +13,7 @@ public class GamePlayManager : MonoBehaviour
     public ApiModule ApiModule = new ApiModule();
 
     public string USERPOOL_ID = "";
-    public string IDENTITYPOOL_ID = "";
+    //public string IDENTITYPOOL_ID = "";
     public string CLIENT_ID = "";
 
     [System.Serializable]
@@ -56,7 +56,7 @@ public class GamePlayManager : MonoBehaviour
         // Set application config variables
         this.ApiModule.API_URL = gamePlayConfig.ApiUrl;
         this.USERPOOL_ID = gamePlayConfig.UserPoolId;
-        this.IDENTITYPOOL_ID = gamePlayConfig.IdentityPoolId;
+        //this.IDENTITYPOOL_ID = gamePlayConfig.IdentityPoolId;
         this.CLIENT_ID = gamePlayConfig.ClientId;
     }
 }
