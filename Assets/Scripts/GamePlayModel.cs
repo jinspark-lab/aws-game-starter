@@ -25,18 +25,18 @@ public class GamePlayModel
     [Serializable]
     public class GameData
     {
-        public Dictionary<string, string> GameEvent;
+        public int LoginRuby;
         public string Resource;
 
         public GameData()
         {
-            this.GameEvent = new Dictionary<string, string>();
+            this.LoginRuby = 0;
             this.Resource = "";
         }
 
-        public GameData(Dictionary<string, string> GameEvent, string Resource)
+        public GameData(int LoginRuby, string Resource)
         {
-            this.GameEvent = GameEvent;
+            this.LoginRuby = LoginRuby;
             this.Resource = Resource;
         }
     }

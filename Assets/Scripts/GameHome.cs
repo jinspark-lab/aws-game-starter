@@ -15,6 +15,7 @@ public class GameHome : MonoBehaviour
     void Start()
     {
         Debug.Log("Start Game Home");
+        UpdateGameEvent();
         StartCoroutine(GetTexture());
     }
 
@@ -23,10 +24,11 @@ public class GameHome : MonoBehaviour
         GUI.DrawTexture(new Rect(Screen.width/2, 10, 60, 60), homeTexture, ScaleMode.StretchToFill, true, 10.0f);
 
         var gameDataText = "Resource URL : " + GamePlayManager.Singleton.HomePlayData.GameData.Resource + "\r\nEvent Data : \r\n";
-        foreach (var key in GamePlayManager.Singleton.HomePlayData.GameData.GameEvent.Keys)
-        {
-            gameDataText += key + " : " + GamePlayManager.Singleton.HomePlayData.GameData.GameEvent[key] + "\r\n";
-        }
+        //foreach (var key in GamePlayManager.Singleton.HomePlayData.GameData.GameEvent.Keys)
+        //{
+        //    gameDataText += key + " : " + GamePlayManager.Singleton.HomePlayData.GameData.GameEvent[key] + "\r\n";
+        //}
+        gameDataText += "Login Reward Ruby : " + GamePlayManager.Singleton.HomePlayData.GameData.LoginRuby;
 
         var userDataText = "";
         userDataText += "User Name : " + GamePlayManager.Singleton.HomePlayData.UserData.UserName + "\r\n";
@@ -36,6 +38,14 @@ public class GameHome : MonoBehaviour
 
         GameDataText.text = gameDataText;
         UserDataText.text = userDataText;
+    }
+
+    private void UpdateGameEvent()
+    {
+        //LoginEventData loginEventData = JsonUtility.FromJson<LoginEventData>(GamePlayManager.Singleton.HomePlayData.GameData.GameEvent["Login"]);
+        Debug.Log("Update Game Event");
+        Debug.Log(GamePlayManager.Singleton.HomePlayData.GameData.LoginRuby);
+        GamePlayManager.Singleton.HomePlayData.UserData.UserRuby += GamePlayManager.Singleton.HomePlayData.GameData.LoginRuby;
     }
 
     IEnumerator GetTexture()
